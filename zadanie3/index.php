@@ -28,9 +28,6 @@ function checkLangs($langs, $langs_check) {
     return TRUE;
 }
 
-// ? почему ошибки до сих пор на другой странице
-// ? как запентестить свою валидацию
-// ? что если htmlspecialchars убрать вручную
 
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     echo 'This script only works with POST queries';
