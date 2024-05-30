@@ -1,0 +1,123 @@
+<html lang="ru"><head>
+    <meta charset="utf-8">
+    <title>Летняя практика</title>
+</head>
+<body>
+<form method="POST" action="index.php">
+    <p><b>Запросы к базе данных:</b> </p>
+    <p>1. Выбор из таблицы АБИТУРИЕНТЫ информации об абитуриентах, мужского пола.</p>
+    <p>2. Выбор из таблицы ЭКЗАМЕНАТОРЫ информации об экзаменаторах, для которых установлен размер оплаты за прием одного экзамена от 300 до 500 руб.</p>
+    <p>3. Выбор из таблицы АБИТУРИЕНТЫ информации об абитуриентах, год рождения которых находится в диапазоне 2000-2005</p>
+    <p>4. Выбор из таблицы ЭКЗАМЕНАТОРЫ информации об экзаменаторе с некоторым значением в поле ФИО экзаменатора. Ввод!.</p>
+    <p>5. Выбор из таблиц АБИТУРИЕНТЫ, ЭКЗАМЕНАТОРЫ и ЭКЗАМЕНЫ информации обо всех экзаменах в некоторый заданный интервал времени. Ввод!</p>
+    <p>6. Вычисление для каждого экзамена размер налога и зарплаты экзаменатора. Вввод!</p>
+    <p>7. Группировка по полю Год рождения в таблице АБИТУРИЕНТЫ. Для каждой группы опредлеяет количество абитуриентов.</p>
+    <p>8. Группировка по полю Наименование дисциплины в таблице ЭКЗАМЕНЫ. Для каждой дисциплины вычисляет среднее значение по полю Оценка</p>
+    <label>Выберите запрос:<br><br>
+        <select name="options" id="options" onchange="showIndexInput()">
+            <option value="1"> 1</option>
+            <option value="2"> 2</option>
+            <option value="3"> 3</option>
+            <option value="4"> 4</option>
+            <option value="5"> 5</option>
+            <option value="6"> 6</option>
+            <option value="7"> 7</option>
+            <option value="8"> 8</option>
+        </select>
+    </label>
+    <div id="nameInput" style="display: none;">
+        <input type = "text" id="pos_name" name="pos_name" placeholder="Введите ФИО">
+    </div>
+    <div id="bonus1RangeInput" style="display: none;">
+        <input type="number" id="lower" name="lowerBonus1" placeholder="Введите нижнюю границу">
+        <input type="number" id="upper" name="upperBonus1" placeholder="Введите верхнуюю границу">
+    </div>
+    <div id="bonus2RangeInput" style="display: none;">
+        <input type="number" id="lower" name="fio" placeholder="Введите ФИО">
+        <input type="number" id="upper" name="razmer" placeholder="Введите Размер оплаты">
+        <input type="number" id="upper" name="date" placeholder="Введите Дату сдачи экзамена">
+        <input type="number" id="upper" name="nazvanie" placeholder="Введите Название экзамена">
+        <input type="number" id="upper" name="nalog" placeholder="Введите Налог">
+        <input type="number" id="upper" name="salary" placeholder="Введите Зарплату">
+    </div>
+    <button type="submit">Выбрать</button>
+</form>
+<style>
+  /* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+p {
+    margin: 10px 0;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #3217af;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #4423df;
+} 
+
+</style>
+<script>
+  function showIndexInput() {
+    var options = document.getElementById('options');
+    var nameInput = document.getElementById('nameInput');
+    var bonus1RangeInput = document.getElementById('bonus1RangeInput');
+    if (options.value === '4') {
+        nameInput.style.display = 'block';
+        bonus1RangeInput.style.display = 'none';
+        bonus2RangeInput.style.display = 'none';
+    } else if (options.value === '5') {
+        nameInput.style.display = 'none';
+        bonus1RangeInput.style.display = 'block';
+    }
+    else if (options.value === '6') {
+        nameInput.style.display = 'none';
+        bonus1RangeInput.style.display = 'none';
+        bonus2RangeInput.style.display = 'block';
+    }
+     else {
+        nameInput.style.display = 'none';
+        bonus1RangeInput.style.display = 'none';
+        bonus2RangeInput.style.display = 'none';
+    }
+}
+</script>
+</body></html>
